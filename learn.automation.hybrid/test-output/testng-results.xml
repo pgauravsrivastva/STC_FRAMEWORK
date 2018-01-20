@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="51174" started-at="2018-01-14T04:50:56Z" finished-at="2018-01-14T04:51:47Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="51174" started-at="2018-01-14T04:50:56Z" finished-at="2018-01-14T04:51:47Z">
+      <class name="applicationTestCases.LoginCRM">
+        <test-method status="PASS" signature="setupReprt()[pri:0, instance:applicationTestCases.LoginCRM@91161c7]" name="setupReprt" is-config="true" duration-ms="769" started-at="2018-01-14T10:20:55Z" finished-at="2018-01-14T10:20:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupReprt -->
+        <test-method status="PASS" signature="startSession(java.lang.String)[pri:0, instance:applicationTestCases.LoginCRM@91161c7]" name="startSession" is-config="true" duration-ms="37887" started-at="2018-01-14T10:20:56Z" finished-at="2018-01-14T10:21:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[IE]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startSession -->
+        <test-method status="PASS" signature="loginAdmin()[pri:0, instance:applicationTestCases.LoginCRM@91161c7]" name="loginAdmin" duration-ms="7079" started-at="2018-01-14T10:21:34Z" finished-at="2018-01-14T10:21:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginAdmin -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:applicationTestCases.LoginCRM@91161c7]" name="tearDown" is-config="true" duration-ms="3267" started-at="2018-01-14T10:21:41Z" finished-at="2018-01-14T10:21:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=loginAdmin status=SUCCESS method=LoginCRM.loginAdmin()[pri:0, instance:applicationTestCases.LoginCRM@91161c7] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="terminateSession()[pri:0, instance:applicationTestCases.LoginCRM@91161c7]" name="terminateSession" is-config="true" duration-ms="2901" started-at="2018-01-14T10:21:44Z" finished-at="2018-01-14T10:21:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateSession -->
+        <test-method status="PASS" signature="tearDownReport()[pri:0, instance:applicationTestCases.LoginCRM@91161c7]" name="tearDownReport" is-config="true" duration-ms="1180" started-at="2018-01-14T10:21:47Z" finished-at="2018-01-14T10:21:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownReport -->
+      </class> <!-- applicationTestCases.LoginCRM -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
