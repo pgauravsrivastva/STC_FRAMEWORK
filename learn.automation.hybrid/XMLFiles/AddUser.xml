@@ -4,7 +4,7 @@
 	<test name="Test">
 <!-- 		 <parameter name="Browser" value="Chrome" /> -->
 		<classes>
-			<class name="applicationTestCases.LoginCRM"/>
+			<class name="applicationTestCases.AddUsers" />
 			
 		</classes>
 	</test>
