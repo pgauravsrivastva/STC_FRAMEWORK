@@ -52,13 +52,7 @@ public class LoginPage
 	{
 		username.sendKeys("Admin");
 		password.sendKeys("admin");
-		loginButton.click();
-		
+		loginButton.click();		
 	}
-	
-	
-	
-	
-	
 	
 }

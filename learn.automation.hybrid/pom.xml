@@ -71,14 +71,14 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>XMLFiles/${xmlFiles}</suiteXmlFile>
 					</suiteXmlFiles>
-
+<!-- 
 					<systemPropertyVariables>
 
 						<RuntimeBrowser>${Browser}</RuntimeBrowser>
 						<OSName>${OSName}</OSName>
 						<OSVersion>${version}</OSVersion>
 
-					</systemPropertyVariables>
+					</systemPropertyVariables> -->
 
 				</configuration>
 			</plugin>
