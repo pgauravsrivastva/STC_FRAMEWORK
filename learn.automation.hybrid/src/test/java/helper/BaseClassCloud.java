@@ -16,7 +16,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import applicationFactory.BrowserFactory;
 import applicationFactory.DataProviderFactory;
 
-public class BaseClass {
+public class BaseClassCloud {
 
 	public WebDriver driver;
 	public ExtentReports report;
@@ -29,10 +29,10 @@ public class BaseClass {
 				System.getProperty("user.dir") + "/Reports/" + Utility.getCurrentDateTime() + ".html");
 	}
 
-	@Parameters("Browser")
+	@Parameters({"Browser","OSName","version"})
 	@BeforeClass
-	public void startSession(String browser) {
-		driver = BrowserFactory.startApplication(browser, DataProviderFactory.getConfig().getTestApplicationURL());
+	public void startSession(String browser,String os,String version) {
+		driver=BrowserFactory.startApplicationOnCloud(browser, DataProviderFactory.getConfig().getTestApplicationURL(), os, version);
 	}
 
 	

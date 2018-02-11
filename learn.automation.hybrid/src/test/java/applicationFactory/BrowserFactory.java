@@ -79,8 +79,7 @@ public class BrowserFactory {
 		return driver;
 	}
 
-	public static WebDriver startApplicationOnCloud(String browser, String url, String OSName, String version,
-			String device) {
+	public static WebDriver startApplicationOnCloud(String browser, String url, String OSName, String version) {
 
 		System.out.println("INFO: Setting up the browser on Cloud");
 
@@ -94,35 +93,40 @@ public class BrowserFactory {
 
 		cap.setCapability("os", OSName);
 		cap.setCapability("os_version", version);
-		cap.setCapability("device", device);
 
 		final String USERNAME = "mukeshotwani3";
 		final String AUTOMATE_KEY = "s4GTbs4fFzQxJxzpzp2f";
 		final String hubURL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
 		URL urlCloud = null;
-		try {
+		try 
+		{
 			urlCloud = new URL(hubURL);
 
 		} catch (MalformedURLException e) {
 
 		}
 
+		
+		System.out.println("User has passed Browser name "+browser);
+		
 		if (browser.equalsIgnoreCase("Chrome")) {
 
 			cap.setCapability("browser", "Chrome");
 
 			driver = new RemoteWebDriver(urlCloud, cap);
 
-		}
-		if (browser.equalsIgnoreCase("Firefox")) {
+		}else if (browser.equalsIgnoreCase("Firefox"))
+		{
 			cap.setCapability("browser", "Firefox");
 
 			driver = new RemoteWebDriver(urlCloud, cap);
 
-		} else if (browser.equalsIgnoreCase("IE")) {
+		} else if (browser.equalsIgnoreCase("IE")) 
+		{
 			driver = new InternetExplorerDriver(cap);
-		} else {
+		} else
+		{
 			System.out.println("ERROR: Sorry This framework only support Chrome, FF, IE Browser");
 		}
 

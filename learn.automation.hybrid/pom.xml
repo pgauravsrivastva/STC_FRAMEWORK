@@ -4,8 +4,8 @@
 	<groupId>learn.automation.hybrid</groupId>
 	<artifactId>learn.automation.hybrid</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
- 
-     
+
+
 	<dependencies>
 
 		<dependency>
@@ -67,17 +67,19 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.17</version>
 				<configuration>
-			
+
 					<suiteXmlFiles>
 						<suiteXmlFile>XMLFiles/${xmlFiles}</suiteXmlFile>
 					</suiteXmlFiles>
-				
-				<!-- 	<systemPropertyVariables>
-					
-					 <RuntimeBrowser>${Browser}</RuntimeBrowser> 
-					
+
+					<systemPropertyVariables>
+
+						<RuntimeBrowser>${Browser}</RuntimeBrowser>
+						<OSName>${OSName}</OSName>
+						<OSVersion>${version}</OSVersion>
+
 					</systemPropertyVariables>
- -->
+
 				</configuration>
 			</plugin>
 
