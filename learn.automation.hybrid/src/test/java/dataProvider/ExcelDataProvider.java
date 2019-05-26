@@ -3,15 +3,17 @@ package dataProvider;
 import java.io.File;
 import java.io.FileInputStream;
 
+import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelDataProvider {
 
 	XSSFWorkbook wb;
 
-	public ExcelDataProvider() {
+	public ExcelDataProvider(String testcasename) {
 
-		File src = new File(System.getProperty("user.dir") + "/TestData/Login.xlsx");
+		File src = new File(System.getProperty("user.dir") + "/TestData/"+testcasename+".xlsx");
+		//File src = new File(System.getProperty(DataFileLocation));
 
 		try {
 			FileInputStream fis = new FileInputStream(src);
@@ -53,5 +55,11 @@ public class ExcelDataProvider {
 		return data;
 	}
 	
+	public int getlastrowno(String sheetname) {
+		int row= wb.getSheet(sheetname).getLastRowNum();
+		 row=row+1;
+		 return row;
+		
+	}
 	
 }

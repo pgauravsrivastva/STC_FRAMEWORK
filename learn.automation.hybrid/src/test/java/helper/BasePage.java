@@ -17,6 +17,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -24,6 +26,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -34,6 +38,7 @@ public class BasePage {
 	public static WebDriver driver;
 	public ExtentReports report;
 	public ExtentTest logger = null;
+	
 	
 	
 	//info: to click
@@ -61,6 +66,16 @@ public class BasePage {
 	public static void select(String xpath, String text) {
 		Select sec=new Select(driver.findElement(By.xpath(xpath)));
 		sec.selectByVisibleText(text);
+	}
+	public static void selectbyindex(String xpath,int index) {
+		Select sec=new Select(driver.findElement(By.xpath(xpath)));
+		sec.selectByIndex(index);
+	}
+	
+	public static void scrolldown() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,1000)");
+
 	}
 	
 	
@@ -103,12 +118,11 @@ public class BasePage {
 	//Info: Wait until perticular webelement is not displayed.
 	public static void syncWebElement(WebDriver driver, String xpath, int time) {
         
-		System.out.println("Wait for webelement until it is visible");
 		WebDriverWait wait = new WebDriverWait(driver, time);
 		WebElement ele=wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath(xpath))));
 		
 		Boolean status=ele.isDisplayed();
-		System.out.println("Element visibility is " + status);
+		System.out.println("Wait for Element Visibility::Now Element visibility is " + status);
 	
 		
 
@@ -141,6 +155,9 @@ public class BasePage {
 		Boolean display=driver.findElement(By.xpath(xpath)).isDisplayed();
 		System.out.println("Webelement is " +display+"ly" +" Present");
 	}
+	
+	
+	
 
 
     
@@ -157,6 +174,13 @@ public class BasePage {
 		}
 		//driver.quit();
 		System.out.println("Applcation closed");
+		
+		
+	
 
 }
+	
+	
+	
+	
 }
