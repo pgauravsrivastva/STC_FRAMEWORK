@@ -1,11 +1,24 @@
 package applicationTestCases;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.lang3.time.StopWatch;
+import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.google.common.base.Stopwatch;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 import applicationFactory.STCBrowserFactory;
 import applicationPages.AddonsPage;
+import applicationPages.JourneyDetailsPage;
+import applicationPages.PaymentDetailsPage;
+import applicationPages.SeatAssignmentPage;
 import applicationPages.SpicejetLoginLandingPage;
 import applicationPages.TravellerDetailsPage;
 import applicationPages.chooseAFlightPage;
@@ -15,14 +28,12 @@ import helper.BasePage;
 
 public class TestSpicejet extends BasePage {
 
+	
+
+	
+
 	@Test
 	public void SmokeSpicejet() throws Exception {
-
-		ConfigDataProvider config = new ConfigDataProvider();
-
-		STCBrowserFactory.startapplication("chrome", config.getTestApplicationURL());
-
-		Thread.sleep(6000);
 
 		SpicejetLoginLandingPage landing = new SpicejetLoginLandingPage();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -58,25 +69,25 @@ public class TestSpicejet extends BasePage {
 		AddonsPage addon = new AddonsPage();
 		addon.scrolldownandclickContinue();
 
+		SeatAssignmentPage seat = new SeatAssignmentPage();
+		seat.clicSkipAndContinue();
+
+		PaymentDetailsPage payment = new PaymentDetailsPage();
+		payment.clickReviewBooking();
+
+		JourneyDetailsPage journey = new JourneyDetailsPage();
+
+		String actualPhoneNumber = journey.getPhoneNumber();
+
+		System.out.println(actualPhoneNumber.substring(4));
+
+		Assert.assertEquals(actualPhoneNumber.substring(4), excel.getStringData("BookingDetailss", 2, 1),
+				"Phone number is not matched.");
+
+		pageLoad.stop();
+		System.out.println("Total Page Load Time: " + pageLoad.getTime(TimeUnit.SECONDS) + " Seconds");
+
 	}
 	
-	/*public Object[][]enterdata(){
-		
-		ExcelDataProvider excel=new ExcelDataProvider("TestSpicejet");
-		int lastrow=excel.getlastrowno("BookingDetailss");
-		for (int i = 0; i < lastrow; i++) {
-			
-			Object[][] data=new Object[lastrow][1];
-			data[i][0]=excel.getStringData("BookingDetailss", i, 1);
-			
-			
-		}
-		return null;*/
-		
-		
-		
-	}
-	
-	
 
-
+}

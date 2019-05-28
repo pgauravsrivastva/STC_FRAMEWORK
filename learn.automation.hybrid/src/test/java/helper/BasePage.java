@@ -9,7 +9,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
+import org.apache.commons.lang3.time.StopWatch;
 import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -33,13 +35,29 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import applicationFactory.STCBrowserFactory;
+import dataProvider.ConfigDataProvider;
+
 public class BasePage {
 	
 	public static WebDriver driver;
 	public ExtentReports report;
-	public ExtentTest logger = null;
+	public ExtentTest logger;
 	
+	public StopWatch pageLoad = new StopWatch();
 	
+	@BeforeTest
+	public void startApplication() {
+
+		pageLoad.start();
+		System.out.println("Execution Start Timing is " + pageLoad.getStartTime());
+		ConfigDataProvider config = new ConfigDataProvider();
+
+		STCBrowserFactory.startapplication("chrome", config.getTestApplicationURL());
+		
+		
+
+	}
 	
 	//info: to click
 	public static void click(String xpath) {
