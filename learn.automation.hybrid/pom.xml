@@ -6,6 +6,18 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 
+
+
+ <properties>
+  
+  <suiteXmlFile>src/main/java/Spicejettestng.xml</suiteXmlFile>
+  
+
+
+ 
+</properties>
+
+
 	<dependencies>
 
 		<dependency>
