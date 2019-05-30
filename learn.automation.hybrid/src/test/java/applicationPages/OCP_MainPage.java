@@ -2,7 +2,7 @@ package applicationPages;
 
 import helper.BasePage;
 
-public class OCP_LandingPage extends BasePage {
+public class OCP_MainPage extends BasePage {
 	
 	public static String allDay = "//input[@name='cb_all_day_event']";
 	public static String webserviceName = "//input[@id='DataPowerReportsUIpage_FilterCriteriawebservice_name_field']";

@@ -5,7 +5,7 @@ package applicationTestCases;
 import org.testng.annotations.Test;
 
 import applicationFactory.STCBrowserFactory;
-import applicationPages.OCP_LandingPage;
+import applicationPages.OCP_MainPage;
 import applicationPages.STC_OCP_Loginpage;
 import dataProvider.ConfigDataProvider;
 import helper.BasePage;
@@ -28,7 +28,7 @@ public class STC_OCP_Test extends BasePage {
 		
 		login.clickLogin();
 		
-		OCP_LandingPage landingpage=new OCP_LandingPage();
+		OCP_MainPage landingpage=new OCP_MainPage();
 		
 		landingpage.clickAllDay();
 		landingpage.enterWebserviceName("Get User Details");
