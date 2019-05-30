@@ -3,13 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="applicationTestCases.TestSpicejet">
+      <class name="applicationTestCases.STC_OCP_Test">
         <methods>
           <include name="tearDown"/>
-          <include name="SmokeSpicejet"/>
-          <include name="startApplication"/>
+          <include name="testocp"/>
         </methods>
-      </class> <!-- applicationTestCases.TestSpicejet -->
+      </class> <!-- applicationTestCases.STC_OCP_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -2,31 +2,27 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="94475" started-at="2019-05-28T08:42:02Z" finished-at="2019-05-28T08:43:37Z">
+  <suite name="Default suite" duration-ms="38136" started-at="2019-05-30T07:32:05Z" finished-at="2019-05-30T07:32:43Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="94475" started-at="2019-05-28T08:42:02Z" finished-at="2019-05-28T08:43:37Z">
-      <class name="applicationTestCases.TestSpicejet">
-        <test-method status="PASS" signature="startApplication()[pri:0, instance:applicationTestCases.TestSpicejet@37374a5e]" name="startApplication" is-config="true" duration-ms="23047" started-at="2019-05-28T08:42:02Z" finished-at="2019-05-28T08:42:25Z">
+    <test name="Default test" duration-ms="38136" started-at="2019-05-30T07:32:05Z" finished-at="2019-05-30T07:32:43Z">
+      <class name="applicationTestCases.STC_OCP_Test">
+        <test-method status="PASS" signature="testocp()[pri:0, instance:applicationTestCases.STC_OCP_Test@8646db9]" name="testocp" duration-ms="38043" started-at="2019-05-30T07:32:05Z" finished-at="2019-05-30T07:32:43Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startApplication -->
-        <test-method status="PASS" signature="SmokeSpicejet()[pri:0, instance:applicationTestCases.TestSpicejet@37374a5e]" name="SmokeSpicejet" duration-ms="71338" started-at="2019-05-28T08:42:25Z" finished-at="2019-05-28T08:43:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SmokeSpicejet -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:applicationTestCases.TestSpicejet@37374a5e]" name="tearDown" is-config="true" duration-ms="6" started-at="2019-05-28T08:43:37Z" finished-at="2019-05-28T08:43:37Z">
+        </test-method> <!-- testocp -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:applicationTestCases.STC_OCP_Test@8646db9]" name="tearDown" is-config="true" duration-ms="12" started-at="2019-05-30T07:32:43Z" finished-at="2019-05-30T07:32:43Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=SmokeSpicejet status=SUCCESS method=TestSpicejet.SmokeSpicejet()[pri:0, instance:applicationTestCases.TestSpicejet@37374a5e] output={null}]]]>
+                <![CDATA[[TestResult name=testocp status=SUCCESS method=STC_OCP_Test.testocp()[pri:0, instance:applicationTestCases.STC_OCP_Test@8646db9] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- applicationTestCases.TestSpicejet -->
+      </class> <!-- applicationTestCases.STC_OCP_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

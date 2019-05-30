@@ -28,14 +28,25 @@ public class ConfigDataProvider {
 	public String getTestApplicationURL() {
 
 		String data = pro.getProperty("testURL");
-
+        System.out.println("take testurl");
 		return data;
 	}
 
-	public String getProdApplicationURL() {
+	public String getOCPApplicationURL() {
 
-		String data = pro.getProperty("prodURL");
+		String data = pro.getProperty("OCPURL");
+		return data;
+	}
+	
+	public String getOCPUserid() {
 
+		String data = pro.getProperty("OCPuserid");
+		return data;
+	}
+	
+	public String getOCPPassword() {
+
+		String data = pro.getProperty("OCPPassword");
 		return data;
 	}
 

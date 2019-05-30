@@ -46,18 +46,14 @@ public class BasePage {
 	
 	public StopWatch pageLoad = new StopWatch();
 	
-	@BeforeTest
+	/*@BeforeTest
 	public void startApplication() {
 
 		pageLoad.start();
 		System.out.println("Execution Start Timing is " + pageLoad.getStartTime());
-		ConfigDataProvider config = new ConfigDataProvider();
-
-		STCBrowserFactory.startapplication("chrome", config.getTestApplicationURL());
-		
 		
 
-	}
+	}*/
 	
 	//info: to click
 	public static void click(String xpath) {
@@ -72,7 +68,12 @@ public class BasePage {
 	
 	//info: Enter Text in textbox
 	public static void enterText(String xpath,String text) {
-		driver.findElement(By.xpath(xpath)).sendKeys(text);
+		
+			driver.findElement(By.xpath(xpath)).clear();
+			driver.findElement(By.xpath(xpath)).sendKeys(text);
+		
+		
+		
 	}
 	
 	public static String getText(String xpath) {
@@ -115,7 +116,7 @@ public class BasePage {
 	public static void capturescreenshot() {
 		try {
 			File f=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			FileHandler.copy(f, new File("C:/Users/nitya.ranjan.behera/git/STC_FRAMEWORK/learn.automation.hybrid/Screenshots/"+BasePage.getCurrentDateTime()+".png"));
+			FileHandler.copy(f, new File("./Screenshots/"+BasePage.getCurrentDateTime()+".png"));
 			System.out.println("screenshot Captured");
 			
 		} catch (Exception e) {
