@@ -9,6 +9,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.apache.commons.lang3.time.StopWatch;
@@ -28,9 +30,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
+import com.google.common.base.Stopwatch;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -43,8 +47,11 @@ public class BasePage {
 	public static WebDriver driver;
 	public ExtentReports report;
 	public ExtentTest logger;
+	public WebDriverWait wait;
+	public Stopwatch stopwatch;
+	public ITestResult tresult;
 	
-	public StopWatch pageLoad = new StopWatch();
+	
 	
 	/*@BeforeTest
 	public void startApplication() {
@@ -173,6 +180,20 @@ public class BasePage {
 	public static void isWeblementPresent(String xpath) {
 		Boolean display=driver.findElement(By.xpath(xpath)).isDisplayed();
 		System.out.println("Webelement is " +display+"ly" +" Present");
+	}
+	
+	@BeforeMethod
+	public void setUp(ITestResult testrun) throws Exception {
+		ConfigDataProvider config = new ConfigDataProvider();
+		helper.Logger.LOG(Level.INFO, "Browser Opened and Maximized");
+		STCBrowserFactory.startapplication("chrome", config.getOCPApplicationURL());
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		wait = new WebDriverWait(driver, 15);
+		tresult = testrun;
+		stopwatch = Stopwatch.createStarted();
+
 	}
 	
 	

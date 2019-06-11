@@ -5,6 +5,7 @@
     <classes>
       <class name="applicationTestCases.STC_OCP_Test">
         <methods>
+          <include name="setUp"/>
           <include name="tearDown"/>
           <include name="testocp"/>
         </methods>
