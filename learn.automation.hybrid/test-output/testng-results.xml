@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="38136" started-at="2019-05-30T07:32:05Z" finished-at="2019-05-30T07:32:43Z">
+  <suite started-at="2019-06-10T09:52:59Z" name="Suite" finished-at="2019-06-10T09:53:50Z" duration-ms="50531">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="38136" started-at="2019-05-30T07:32:05Z" finished-at="2019-05-30T07:32:43Z">
-      <class name="applicationTestCases.STC_OCP_Test">
-        <test-method status="PASS" signature="testocp()[pri:0, instance:applicationTestCases.STC_OCP_Test@8646db9]" name="testocp" duration-ms="38043" started-at="2019-05-30T07:32:05Z" finished-at="2019-05-30T07:32:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testocp -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:applicationTestCases.STC_OCP_Test@8646db9]" name="tearDown" is-config="true" duration-ms="12" started-at="2019-05-30T07:32:43Z" finished-at="2019-05-30T07:32:43Z">
+    <test started-at="2019-06-10T09:52:59Z" name="Test" finished-at="2019-06-10T09:53:50Z" duration-ms="50531">
+      <class name="STCTestCases.OCPTest">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:STCTestCases.OCPTest@60704c]" started-at="2019-06-10T15:22:59Z" name="setUp" finished-at="2019-06-10T15:23:48Z" duration-ms="48749" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testocp status=SUCCESS method=STC_OCP_Test.testocp()[pri:0, instance:applicationTestCases.STC_OCP_Test@8646db9] output={null}]]]>
+                <![CDATA[chrome]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testocp()[pri:0, instance:STCTestCases.OCPTest@60704c]" started-at="2019-06-10T15:23:48Z" name="testocp" finished-at="2019-06-10T15:23:48Z" duration-ms="370" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testocp -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:STCTestCases.OCPTest@60704c]" started-at="2019-06-10T15:23:48Z" name="tearDown" finished-at="2019-06-10T15:23:50Z" duration-ms="1391" status="PASS">
+          <reporter-output>
+          </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- applicationTestCases.STC_OCP_Test -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- STCTestCases.OCPTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

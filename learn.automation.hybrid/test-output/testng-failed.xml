@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite thread-count="2" parallel="classes" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <parameter name="browser" value="chrome"/>
+  <test name="Test">
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="applicationTestCases.STC_OCP_Test">
-        <methods>
-          <include name="tearDown"/>
-          <include name="testocp"/>
-        </methods>
-      </class> <!-- applicationTestCases.STC_OCP_Test -->
+      <class name="STCTestCases.OCPTest"/>
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test -->
+</suite> <!-- Failed suite [Suite] -->
