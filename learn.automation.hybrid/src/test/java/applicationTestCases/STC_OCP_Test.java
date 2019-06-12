@@ -4,24 +4,25 @@ package applicationTestCases;
 
 import java.util.logging.Level;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import STCDataProvider.ConfigDataProvider;
-import STCPages.OCPLoginPage;
-import STCPages.OCPMainPage;
-import STCUtil.BasePage;
+import STCDataProvider.ExcelUtils;
+import STCPageConstants.OCPLoginPage;
+import STCPageConstants.OCPMainPage;
+import helper.BasePage;
 import helper.Logger;
 
 public class STC_OCP_Test extends BasePage {
 	
 	
-	@Test
-	public void testocp() {
+	@Test(dataProvider = "OCP", enabled = true)
+	public void testocp(String WebServicesName) throws Exception {
 		
-		Logger.LOG(Level.INFO, "******* TFS Testcase ID # *******");
-		Logger.LOG(Level.INFO, "******* Starting Testcase " + tresult.getMethod().getMethodName() + " *******");
+		
+		Logger.LOG(Level.INFO, "******* TFS Testcase ID *******");
 		Logger.TestStepStart("Login to OCP");
-		
 		
 		
 		ConfigDataProvider config = new ConfigDataProvider();
@@ -37,15 +38,33 @@ public class STC_OCP_Test extends BasePage {
 		OCPMainPage landingpage=new OCPMainPage();
 		
 		landingpage.clickAllDay();
-		landingpage.enterWebserviceName("Get User Details");
+		landingpage.enterWebserviceName(WebServicesName);
 		
 		landingpage.clickSearch();
 		
+		
+		
 		scrolldown();
+		
+		Thread.sleep(9000);
 		
 		capturescreenshot();
 		
+		stopTimerAndPrintExecutionTime();
+		
+		driver.quit();
+		
 	
 	}
+	@DataProvider(name = "OCP")
+	public Object[][] excelData() throws Exception {
+
+		// Setting up the Test Data Excel file
+		new ExcelUtils();
+		Object[][] testObjArry = ExcelUtils.getTableArray(this.getClass(), "TST");
+		return (testObjArry);
+
+	}
+
 
 }

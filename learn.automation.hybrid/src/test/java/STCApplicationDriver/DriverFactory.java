@@ -3,7 +3,7 @@ package STCApplicationDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-import STCUtil.BasePage;
+import helper.BasePage;
 
 public class DriverFactory extends BasePage {
 

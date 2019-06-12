@@ -1,4 +1,4 @@
-package STCUtil;
+package helper;
 
 import java.io.File;
 import java.text.DateFormat;
@@ -23,12 +23,12 @@ import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
+import com.google.common.base.Function;
 import com.google.common.base.Stopwatch;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 
 import STCApplicationDriver.DriverFactory;
-import helper.Logger;
 
 public class BasePage {
 
@@ -38,37 +38,21 @@ public class BasePage {
 	public WebDriverWait wait;
 	public Stopwatch stopwatch;
 	public ITestResult tresult;
-	
 
 	public StopWatch pageLoad = new StopWatch();
 
-	
-	 /* @BeforeTest
-	  public void startApplication() {
-	  
-	  pageLoad.start(); System.out.println("Execution Start Timing is " +
-	  pageLoad.getStartTime());
-	  
-	  
-	  
-	  }*/
-	  
-	  @BeforeMethod
-		public void setUp(ITestResult testrun) throws Exception {
-			STCDataProvider.ConfigDataProvider config=new STCDataProvider.ConfigDataProvider();
-			helper.Logger.LOG(Level.INFO, "Browser Opened and Maximized");
-			DriverFactory.startApplication("chrome", config.getOCPApplicationURL());
-			
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			wait = new WebDriverWait(driver, 15);
-			tresult = testrun;
-			stopwatch = Stopwatch.createStarted();
-			
+	@BeforeMethod
+	public void setUp() throws Exception {
+		STCDataProvider.ConfigDataProvider config = new STCDataProvider.ConfigDataProvider();
+		helper.Logger.LOG(Level.INFO, "Browser Opened and Maximized");
+		DriverFactory.startApplication("chrome", config.getOCPApplicationURL());
 
-		}
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		wait = new WebDriverWait(driver, 15);
+		stopwatch = Stopwatch.createStarted();
 
-	 
+	}
 
 	/**
 	 * Method to click on the WebElement
@@ -76,9 +60,9 @@ public class BasePage {
 	 * @param element
 	 */
 
-	public static void click(WebElement element) {
+	public static void click(String xpath) {
 
-		element.click();
+		driver.findElement(By.xpath(xpath)).click();
 	}
 
 	/**
@@ -88,18 +72,17 @@ public class BasePage {
 		driver.manage().window().maximize();
 	}
 
+	public static void enterText(String xpath, String text) {
+		driver.findElement(By.xpath(xpath)).clear();
+		driver.findElement(By.xpath(xpath)).sendKeys(text);
+	}
+
 	/**
 	 * Method to enter text in a textbox
 	 * 
 	 * @param element
 	 * @param text
 	 */
-	public static void enterText(WebElement element, String text) {
-
-		element.clear();
-		element.sendKeys(text);
-
-	}
 
 	/**
 	 * Method to fetch the string value of WebElement
@@ -232,6 +215,28 @@ public class BasePage {
 	public static void isWeblementPresent(WebElement element) {
 		Boolean display = element.isDisplayed();
 		System.out.println("Webelement is " + display + "ly" + " Present");
+	}
+	
+	
+	/*it will print the total execution time
+	*/
+	
+	public void stopTimerAndPrintExecutionTime()  {
+		
+		try {
+			stopwatch.stop(); // optional
+			long seconds = stopwatch.elapsed(TimeUnit.SECONDS);
+			long reformatMinutes = (seconds % 3600) / 60;
+			long reformatSeconds = seconds % 60;
+			String timeString = ("Total execution time: " + String.format("%02d minutes and %02d seconds", reformatMinutes, reformatSeconds));
+			Logger.LOG(Level.INFO, timeString);	
+			
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		
+		
+		
 	}
 
 	/**

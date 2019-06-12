@@ -1,8 +1,10 @@
 package STCPageConstants;
 
-import STCUtil.BasePage;
+import static STCPageConstants.OCPMainPage.WEBSERVICENAME_TEXTBOX;
 
-public class OCPMainPageConstants extends BasePage {
+import helper.BasePage;
+
+public class OCPMainPage extends BasePage {
 
 	public static final String ALLDAY_CHECKBOX = "//input[@name='cb_all_day_event']";
 
@@ -13,4 +15,20 @@ public class OCPMainPageConstants extends BasePage {
 	public static final String NOTIFICATIONCENTER_BUTTON = "//span[text()='Notification Center']";
 
 
+	
+	public void clickAllDay() {
+		click(ALLDAY_CHECKBOX);
+	}
+	
+	public void enterWebserviceName(String text) {
+		enterText(WEBSERVICENAME_TEXTBOX, text);
+	}
+	
+	public void clickSearch() {
+		click(SEARCH_BUTTON);
+	}
+
+
+	
+	
 }
