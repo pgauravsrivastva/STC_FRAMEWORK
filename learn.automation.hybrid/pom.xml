@@ -1,21 +1,21 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>learn.automation.hybrid</groupId>
 	<artifactId>learn.automation.hybrid</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<properties>
 
+		<suiteXmlFile>testng.xml</suiteXmlFile>
+		<selenium.version>3.4.0</selenium.version>
+		<testng.version>6.9.10</testng.version>
+		<extentreports.version>2.41.2</extentreports.version>
+		<poi.version>3.15</poi.version>
+		<poi.ooxml.version>3.15</poi.ooxml.version>
 
-
- <properties>
-  
-  <suiteXmlFile>src/main/java/Spicejettestng.xml</suiteXmlFile>
-  
-
-
- 
-</properties>
+	</properties>
 
 
 	<dependencies>
@@ -23,43 +23,33 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>3.4.0</version>
+			<version>${selenium.version}</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.9.10</version>
+			<version>${testng.version}</version>
 			<scope>test</scope>
 		</dependency>
-
 
 		<dependency>
 			<groupId>com.relevantcodes</groupId>
 			<artifactId>extentreports</artifactId>
-			<version>2.41.2</version>
+			<version>${extentreports.version}</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>3.15</version>
+			<version>${poi.version}</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>3.15</version>
+			<version>${poi.ooxml.version}</version>
 		</dependency>
-		
-		<dependency>
-    <groupId>com.relevantcodes</groupId>
-    <artifactId>extentreports</artifactId>
-    <version>2.41.2</version>
-</dependency>
 
 
 	</dependencies>
@@ -74,9 +64,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.0</version>
 				<configuration>
-					<compilerVersion>1.8</compilerVersion>
-					<source>1.6</source>
-					<target>1.6</target>
+					<!-- <compilerVersion>1.8</compilerVersion> -->
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 
@@ -87,16 +77,10 @@
 				<configuration>
 
 					<suiteXmlFiles>
-						<suiteXmlFile>XMLFiles/${xmlFiles}</suiteXmlFile>
+						<suiteXmlFile>XMLFiles/${suiteXmlFile}</suiteXmlFile>
 					</suiteXmlFiles>
-<!-- 
-					<systemPropertyVariables>
-
-						<RuntimeBrowser>${Browser}</RuntimeBrowser>
-						<OSName>${OSName}</OSName>
-						<OSVersion>${version}</OSVersion>
-
-					</systemPropertyVariables> -->
+					<!-- <systemPropertyVariables> <RuntimeBrowser>${Browser}</RuntimeBrowser> 
+						<OSName>${OSName}</OSName> <OSVersion>${version}</OSVersion> </systemPropertyVariables> -->
 
 				</configuration>
 			</plugin>

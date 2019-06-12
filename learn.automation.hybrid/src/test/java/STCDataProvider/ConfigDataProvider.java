@@ -1,4 +1,4 @@
-package dataProvider;
+package STCDataProvider;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class ConfigDataProvider {
 
-	Properties pro;
+	Properties prop;
 
 	public ConfigDataProvider() {
 
@@ -15,9 +15,9 @@ public class ConfigDataProvider {
 		try {
 			FileInputStream fis = new FileInputStream(src);
 
-			pro = new Properties();
+			prop = new Properties();
 
-			pro.load(fis);
+			prop.load(fis);
 		} catch (Exception e) {
 
 			System.out.println("ERROR: Failed to load config file " + e.getMessage());
@@ -27,39 +27,39 @@ public class ConfigDataProvider {
 
 	public String getTestApplicationURL() {
 
-		String data = pro.getProperty("testURL");
-        System.out.println("take testurl");
+		String data = prop.getProperty("testURL");
+		System.out.println("take testurl");
 		return data;
 	}
 
 	public String getOCPApplicationURL() {
 
-		String data = pro.getProperty("OCPURL");
+		String data = prop.getProperty("OCPURL");
 		return data;
 	}
-	
+
 	public String getOCPUserid() {
 
-		String data = pro.getProperty("OCPuserid");
+		String data = prop.getProperty("OCPuserid");
 		return data;
 	}
-	
+
 	public String getOCPPassword() {
 
-		String data = pro.getProperty("OCPPassword");
+		String data = prop.getProperty("OCPPassword");
 		return data;
 	}
 
 	public String getUATApplicationURL() {
 
-		String data = pro.getProperty("uatURL");
+		String data = prop.getProperty("uatURL");
 
 		return data;
 	}
 
 	public String getValue(String key) {
 
-		String data = pro.getProperty(key);
+		String data = prop.getProperty(key);
 
 		return data;
 	}

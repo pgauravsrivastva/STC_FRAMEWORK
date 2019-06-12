@@ -6,11 +6,10 @@ import java.util.logging.Level;
 
 import org.testng.annotations.Test;
 
-import applicationFactory.STCBrowserFactory;
-import applicationPages.STC_OCP_MainPage;
-import applicationPages.STC_OCP_Loginpage;
-import dataProvider.ConfigDataProvider;
-import helper.BasePage;
+import STCDataProvider.ConfigDataProvider;
+import STCPages.OCPLoginPage;
+import STCPages.OCPMainPage;
+import STCUtil.BasePage;
 import helper.Logger;
 
 public class STC_OCP_Test extends BasePage {
@@ -27,15 +26,15 @@ public class STC_OCP_Test extends BasePage {
 		
 		ConfigDataProvider config = new ConfigDataProvider();
 		
-		STC_OCP_Loginpage login=new STC_OCP_Loginpage();
+		OCPLoginPage login=new OCPLoginPage();
 		
-		login.enterUserId(config.getOCPUserid());
+		login.enterUser(config.getOCPUserid());
 		
 		login.enterPassword(config.getOCPPassword());
 		
 		login.clickLogin();
 		
-		STC_OCP_MainPage landingpage=new STC_OCP_MainPage();
+		OCPMainPage landingpage=new OCPMainPage();
 		
 		landingpage.clickAllDay();
 		landingpage.enterWebserviceName("Get User Details");
