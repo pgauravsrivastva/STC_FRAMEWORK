@@ -20,6 +20,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
@@ -44,10 +45,7 @@ public class BasePage {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		STCDataProvider.ConfigDataProvider config = new STCDataProvider.ConfigDataProvider();
-		helper.Logger.LOG(Level.INFO, "Browser Opened and Maximized");
 		DriverFactory.startApplication("chrome", config.getOCPApplicationURL());
-
-		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, 15);
 		stopwatch = Stopwatch.createStarted();
@@ -151,10 +149,10 @@ public class BasePage {
 		try {
 			File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			FileHandler.copy(file, new File("./Screenshots/" + getCurrentDateTime() + ".png"));
-			System.out.println("screenshot Captured");
+			Logger.LOG(Level.INFO, "Screenshot Captured");
 
 		} catch (Exception e) {
-			System.out.println("unable to take screenshot");
+			Logger.LOG(Level.INFO, "Unable to capture Screenshot");
 			System.out.println(e.getMessage());
 
 		}
@@ -244,17 +242,19 @@ public class BasePage {
 	 * 
 	 * @param result
 	 */
-//	@AfterMethod
-//	public void tearDown(ITestResult result) {
-//
-//		if (ITestResult.FAILURE == result.getStatus()) {
-//
-//			capturescreenshot();
-//
-//		}
-//		// driver.quit();
-//		System.out.println("Applcation closed");
-//
-//	}
+	@AfterMethod
+	public void tearDown(ITestResult result) {
+
+		if (ITestResult.FAILURE == result.getStatus()) {
+
+			capturescreenshot();
+			
+
+		}
+		 driver.quit();
+	    Logger.LOG(Level.INFO, "Application Closed");
+	    stopTimerAndPrintExecutionTime();
+
+	}
 
 }

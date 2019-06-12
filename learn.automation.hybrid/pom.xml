@@ -8,7 +8,7 @@
 
 	<properties>
 
-		<suiteXmlFile>testng.xml</suiteXmlFile>
+		<suiteXmlFile>STC_OCP_Test.xml</suiteXmlFile>
 		<selenium.version>3.4.0</selenium.version>
 		<testng.version>6.9.10</testng.version>
 		<extentreports.version>2.41.2</extentreports.version>
@@ -16,6 +16,9 @@
 		<poi.ooxml.version>3.15</poi.ooxml.version>
 
 	</properties>
+	
+	
+	
 
 
 	<dependencies>
