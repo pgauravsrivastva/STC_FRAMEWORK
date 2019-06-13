@@ -18,7 +18,11 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import helper.Logger;
-
+/*
+ * Method to set the test data file for the test
+ * @Author Nitya Ranjan
+ * 
+ */
 
 
 public class ExcelUtils {
@@ -29,6 +33,9 @@ public class ExcelUtils {
 	private static int keyColumnNumber = 0;
 	private static int valueColumnNumber = 1;
 
+	
+	
+	
 	/* Method to get data from excel file */
 
 	public static Object[][] getTableArray(Class<?> cl) throws Exception {
@@ -162,101 +169,14 @@ public class ExcelUtils {
 	 * tab name and column
 	 */
 
-	public String[] getSourceDataByColumn(String tabName, int column) throws Exception {
-		String[] tabArray = null;
-		try {
-
-			readMasterSourceDataFileBySheetName(tabName);
-
-			int startRow = 1;
-			int ci;
-			int totalRows = ExcelWSheet.getLastRowNum();
-
-			tabArray = new String[totalRows];
-
-			ci = 0;
-			for (int i = startRow; i <= totalRows; i++, ci++) {
-				try {
-					tabArray[ci] = getCellData(i, column);
-					if (tabArray[ci] == null) {
-						throw new NullPointerException();
-					}
-				} catch (NullPointerException e) {
-					Logger.LOG(Level.SEVERE,
-							"Could not read " + tabName + " Excel sheet --> the cell is blank or not in text format.");
-					e.printStackTrace();
-				}
-			}
-		} catch (FileNotFoundException e) {
-			Logger.LOG(Level.SEVERE, "Could not read " + tabName + " Excel sheet --> File Not found");
-			e.printStackTrace();
-		} catch (IOException e) {
-			Logger.LOG(Level.SEVERE, "Could not read " + tabName + " Excel sheet --> Can't read the file");
-			e.printStackTrace();
-		} catch (NullPointerException e) {
-			Logger.LOG(Level.SEVERE,
-					"Could not read " + tabName + " Excel sheet --> data file has either empty spreadsheet, or the cell is blank or not in text format.");
-			e.printStackTrace();
-		}
-		return removeNullValueFromArray(tabArray);
-
-	}
-
-	private void readMasterSourceDataFileBySheetName(String tabName) throws Exception {
-		TestDataFolderSetUpUtils testDataFolderSetUpUtils = new TestDataFolderSetUpUtils();
-		File globalTestSourceDataFile = testDataFolderSetUpUtils.setExcelMasterSourceDataFile();
-		ExcelWBook = new XSSFWorkbook(globalTestSourceDataFile);
-		ExcelWSheet = ExcelWBook.getSheet(tabName);
-	}
+		
 
 	/*
 	 * Method to get data from master source data excel file based on the tab
 	 * name, column and with the start year
 	 */
 
-	public String[] getSourceDataByColumnWithStartYear(String sheetName, int column, String value) throws Exception {
-		String[] tabArray = null;
-		try {
-
-			readMasterSourceDataFileBySheetName(sheetName);
-
-			int startRow = 1;
-			int ci;
-			int totalRows = ExcelWSheet.getLastRowNum();
-
-			tabArray = new String[totalRows];
-
-			checkInputYear(value);
-
-			ci = 0;
-			for (int i = startRow; i <= totalRows; i++) {
-				try {
-					if (getCellData(i, 0).contains(value)) {
-						tabArray[ci] = getCellData(i, column);
-						ci++;
-					}
-				} catch (NullPointerException e) {
-					Logger.LOG(Level.SEVERE,
-							"Could not read " + sheetName + " Excel sheet --> the cell is blank or not in text format.");
-					e.printStackTrace();
-				}
-			}
-		} catch (FileNotFoundException e) {
-			Logger.LOG(Level.SEVERE, "Could not read " + sheetName + " Excel sheet --> File Not found");
-			e.printStackTrace();
-		} catch (IOException e) {
-			Logger.LOG(Level.SEVERE, "Could not read " + sheetName + " Excel sheet --> Can't read the file");
-			e.printStackTrace();
-		} catch (NullPointerException e) {
-			Logger.LOG(Level.SEVERE,
-					"Could not read " + sheetName + " Excel sheet --> data file has either empty spreadsheet, or the cell is blank or not in text format.");
-			e.printStackTrace();
-		}
-		return removeNullValueFromArray(tabArray);
-
-	}
-
-	private static void checkInputYear(String value) throws Exception {
+		private static void checkInputYear(String value) throws Exception {
 		Calendar now = Calendar.getInstance();
 		int currentYear = now.get(Calendar.YEAR);
 		int year = Integer.valueOf(value);
@@ -271,116 +191,13 @@ public class ExcelUtils {
 	 * the number of years
 	 */
 
-	public String[] getsourceDataWithStartYearAndNumberofYears(String sheetName, int column, String startYear,
-			int numberOfRecords) throws Exception {
-		String[] tabArray = null;
-		try {
-
-			readMasterSourceDataFileBySheetName(sheetName);
-
-			int startRow = 1;
-			int ci;
-			int totalRows = ExcelWSheet.getLastRowNum();
-
-			tabArray = new String[totalRows];
-
-			checkInputYear(startYear);
-			Calendar now = Calendar.getInstance();
-			int currentYear = now.get(Calendar.YEAR);
-			int year = Integer.valueOf(startYear);
-
-			if (year + numberOfRecords > currentYear)
-				throw new Exception("Based on the required start year, the required number of year is not correct.");
-
-			ci = 0;
-			for (int i = startRow; i <= totalRows; i++) {
-				try {
-					int value = Integer.valueOf(getCellData(i, 0).substring(6, 10));
-					if (value == year || ((value > year) && (value <= year + numberOfRecords - 1))) {
-						tabArray[ci] = getCellData(i, column);
-						ci++;
-					}
-				} catch (NullPointerException e) {
-					Logger.LOG(Level.SEVERE,
-							"Could not read " + sheetName + " Excel sheet --> the cell is blank or not in text format.");
-					e.printStackTrace();
-				}
-			}
-		} catch (FileNotFoundException e) {
-			Logger.LOG(Level.SEVERE, "Could not read " + sheetName + " Excel sheet --> File Not found");
-			e.printStackTrace();
-		} catch (IOException e) {
-			Logger.LOG(Level.SEVERE, "Could not read " + sheetName + " Excel sheet --> Can't read the file");
-			e.printStackTrace();
-		} catch (NullPointerException e) {
-			Logger.LOG(Level.SEVERE,
-					"Could not read " + sheetName + " Excel sheet --> data file has either empty spreadsheet, or the cell is blank or not in text format.");
-			e.printStackTrace();
-		}
-		return removeNullValueFromArray(tabArray);
-
-	}
-
-	/*
+		/*
 	 * Method to get source data from master source data excel file, tab and
 	 * column and with specific value and return the rows based on start year
 	 * and end year
 	 */
 
-	public String[] getsourceDataWithStartYearAndEndYear(String sheetName, int column, String startYear, String endYear)
-			throws Exception {
-		String[] tabArray = null;
-	try {
-
-			readMasterSourceDataFileBySheetName(sheetName);
-
-			int startRow = 1;
-			int ci;
-			int totalRows = ExcelWSheet.getLastRowNum();
-
-			tabArray = new String[totalRows];
-
-			Calendar now = Calendar.getInstance();
-			int currentYear = now.get(Calendar.YEAR);
-			int yearStart = Integer.valueOf(startYear);
-			int yearEnd = Integer.valueOf(endYear);
-			if (yearStart > currentYear || yearStart < 1900)
-				throw new Exception("the required start year is not correct.");
-
-			if (yearEnd > currentYear || yearEnd < yearStart)
-				throw new Exception("The required end year is not correct.");
-
-			ci = 0;
-			for (int i = startRow; i <= totalRows; i++) {
-				try {
-					int value = Integer.valueOf(getCellData(i, 0).substring(6, 10));
-					if (value >= yearStart && value <= yearEnd) {
-						tabArray[ci] = getCellData(i, column);
-						ci++;
-					}
-				} catch (NullPointerException e) {
-					Logger.LOG(Level.SEVERE,
-							"Could not read " + sheetName + " Excel sheet --> the cell is blank or not in text format.");
-					e.printStackTrace();
-				}
-
-			}
-		} catch (FileNotFoundException e) {
-			Logger.LOG(Level.SEVERE, "Could not read " + sheetName + " Excel sheet --> File Not found");
-			e.printStackTrace();
-		} catch (IOException e) {
-			Logger.LOG(Level.SEVERE, "Could not read " + sheetName + " Excel sheet --> Can't read the file");
-			e.printStackTrace();
-		} catch (NullPointerException e) {
-			Logger.LOG(Level.SEVERE, "Could not read " + sheetName
-					+ " Excel sheet --> data file has either empty spreadsheet, or the cell is blank or not in text format.");
-			e.printStackTrace();
-		}
-		return removeNullValueFromArray(tabArray);
-
-	}
-
-	/* Method to get data from specific excel file and tab */
+		/* Method to get data from specific excel file and tab */
 
 	public static Object[][] getTableArray(File dataFile, String sheetName) throws Exception {
 		String[][] tabArray = null;

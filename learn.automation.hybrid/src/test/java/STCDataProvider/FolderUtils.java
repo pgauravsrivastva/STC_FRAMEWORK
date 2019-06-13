@@ -20,7 +20,7 @@ public class FolderUtils {
 	
 	/*
 	 * Method to create Folder 
-	 * @Author Parasar Saha
+	 * @Author Nitya Ranjan
 	 */
 	public boolean createFolder(String folderPath){
 		File dir = new File(folderPath);
@@ -37,7 +37,7 @@ public class FolderUtils {
 	/*
 	 * Method to copy folder and subfolder from one source folder to destination folder
 	 * creates the target folder if it doesn't exist , if the source path is a file then copies the file
-	 * @Author Parasar Saha
+	 * @Author Nitya Ranjan
 	 */
 	
 	public static void copy(File sourceLocation, File targetLocation) throws IOException {
@@ -51,7 +51,7 @@ public class FolderUtils {
 	/*
 	 * Method to copy folder and subfolder from one source folder to destination folder
 	 * creates the target folder if it doesn't exist
-	 * @Author Parasar Saha
+	 * @Author Nitya Ranjan
 	 */
 	
 	public static void copyDirectory(File source, File target) throws IOException {
@@ -68,7 +68,7 @@ public class FolderUtils {
 	/*
 	 * Method to copy file from one source folder to destination file
 	 * creates the target folder if it doesn't exist
-	 * @Author Parasar Saha
+	 * @Author Nitya Ranjan
 	 */
 	
 	private static void copyFile(File source, File target) throws IOException {        
