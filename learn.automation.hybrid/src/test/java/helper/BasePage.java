@@ -233,6 +233,18 @@ public class BasePage {
 		
 		
 	}
+	
+	public static void selectDate(WebDriver driver,WebElement element,String dateVal) {
+		
+		JavascriptExecutor js= ((JavascriptExecutor)driver);
+		js.executeScript("arguments[0].setAttribute('value','"+dateVal+"');", element);
+		
+	}
+	
+	
+	
+	
+	
 
 	/**
 	 * Method to take screenshot, if TC failed only.

@@ -6,15 +6,4 @@
       <class name="applicationTestCases.STC_OCP_Test"/>
     </classes>
   </test> <!-- Default test -->
-  <test name="Default test(failed)">
-    <classes>
-      <class name="applicationTestCases.STC_OCP_Test">
-        <methods>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="testocp" invocation-numbers="0 1"/>
-        </methods>
-      </class> <!-- applicationTestCases.STC_OCP_Test -->
-    </classes>
-  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

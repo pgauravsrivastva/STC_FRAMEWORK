@@ -2,7 +2,6 @@ package applicationTestCases;
 
 import java.util.logging.Level;
 
-
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -13,18 +12,15 @@ import STCPageConstants.OCPMainPage;
 import helper.BasePage;
 import helper.Logger;
 
-
 public class STC_OCP_Test extends BasePage {
-	
-	
-	
+
 	String env = "TST";
 
 	@Test(dataProvider = "OCP", enabled = true)
-	public void testocp(String WebServicesName) throws Exception {
+	public void testocp(String WebServicesName, String FormDate) throws Exception {
 
 		Logger.LOG(Level.INFO, "******* TFS Testcase ID *******");
-		
+
 		Logger.TestStepStart("Login to OCP");
 
 		ConfigDataProvider config = new ConfigDataProvider();
@@ -40,6 +36,9 @@ public class STC_OCP_Test extends BasePage {
 		OCPMainPage landingpage = new OCPMainPage();
 
 		landingpage.clickAllDay();
+
+		landingpage.enterDateForm(FormDate);
+
 		landingpage.enterWebserviceName(WebServicesName);
 
 		landingpage.clickSearch();
@@ -49,7 +48,7 @@ public class STC_OCP_Test extends BasePage {
 		Thread.sleep(9000);
 
 		capturescreenshot();
-		
+
 		Logger.TestStepCompleted("");
 
 	}
