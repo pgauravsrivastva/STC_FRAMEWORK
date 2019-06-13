@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="2" total="2" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="97356" started-at="2019-06-13T05:42:27Z" finished-at="2019-06-13T05:44:05Z">
+  <suite name="Default suite" duration-ms="107363" started-at="2019-06-13T07:01:39Z" finished-at="2019-06-13T07:03:26Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="97356" started-at="2019-06-13T05:42:27Z" finished-at="2019-06-13T05:44:05Z">
+    <test name="Default test" duration-ms="107363" started-at="2019-06-13T07:01:39Z" finished-at="2019-06-13T07:03:26Z">
       <class name="applicationTestCases.STC_OCP_Test">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7]" name="setUp" is-config="true" duration-ms="24396" started-at="2019-06-13T11:12:30Z" finished-at="2019-06-13T11:12:54Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7]" name="setUp" is-config="true" duration-ms="24935" started-at="2019-06-13T12:31:41Z" finished-at="2019-06-13T12:32:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testocp(java.lang.String)[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7]" name="testocp" duration-ms="22888" started-at="2019-06-13T11:12:54Z" data-provider="OCP" finished-at="2019-06-13T11:13:17Z">
+        <test-method status="FAIL" signature="testocp(java.lang.String)[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7]" name="testocp" duration-ms="28309" started-at="2019-06-13T12:32:06Z" data-provider="OCP" finished-at="2019-06-13T12:32:35Z">
           <params>
             <param index="0">
               <value>
@@ -19,25 +19,64 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Testcase Failed expected [false] but found [true]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Testcase Failed expected [false] but found [true]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at applicationTestCases.STC_OCP_Test.testocp(STC_OCP_Test.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testocp -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7]" name="tearDown" is-config="true" duration-ms="2979" started-at="2019-06-13T11:13:17Z" finished-at="2019-06-13T11:13:20Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7]" name="tearDown" is-config="true" duration-ms="3626" started-at="2019-06-13T12:32:35Z" finished-at="2019-06-13T12:32:38Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testocp status=SUCCESS method=STC_OCP_Test.testocp(java.lang.String)[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7] output={null}]]]>
+                <![CDATA[[TestResult name=testocp status=FAILURE method=STC_OCP_Test.testocp(java.lang.String)[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7]" name="setUp" is-config="true" duration-ms="18499" started-at="2019-06-13T11:13:20Z" finished-at="2019-06-13T11:13:38Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7]" name="setUp" is-config="true" duration-ms="22122" started-at="2019-06-13T12:32:38Z" finished-at="2019-06-13T12:33:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testocp(java.lang.String)[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7]" name="testocp" duration-ms="23734" started-at="2019-06-13T11:13:38Z" data-provider="OCP" finished-at="2019-06-13T11:14:02Z">
+        <test-method status="FAIL" signature="testocp(java.lang.String)[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7]" name="testocp" duration-ms="22968" started-at="2019-06-13T12:33:00Z" data-provider="OCP" finished-at="2019-06-13T12:33:23Z">
           <params>
             <param index="0">
               <value>
@@ -45,14 +84,53 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Testcase Failed expected [false] but found [true]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Testcase Failed expected [false] but found [true]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at applicationTestCases.STC_OCP_Test.testocp(STC_OCP_Test.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testocp -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7]" name="tearDown" is-config="true" duration-ms="2794" started-at="2019-06-13T11:14:02Z" finished-at="2019-06-13T11:14:05Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7]" name="tearDown" is-config="true" duration-ms="3241" started-at="2019-06-13T12:33:23Z" finished-at="2019-06-13T12:33:26Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=testocp status=SUCCESS method=STC_OCP_Test.testocp(java.lang.String)[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7] output={null}]]]>
+                <![CDATA[[TestResult name=testocp status=FAILURE method=STC_OCP_Test.testocp(java.lang.String)[pri:0, instance:applicationTestCases.STC_OCP_Test@57fffcd7] output={null}]]]>
               </value>
             </param>
           </params>
