@@ -2,7 +2,7 @@ package applicationTestCases;
 
 import java.util.logging.Level;
 
-import org.testng.Assert;
+
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -12,7 +12,7 @@ import STCPageConstants.OCPLoginPage;
 import STCPageConstants.OCPMainPage;
 import helper.BasePage;
 import helper.Logger;
-import helper.SoftAssert;
+
 
 public class STC_OCP_Test extends BasePage {
 	
