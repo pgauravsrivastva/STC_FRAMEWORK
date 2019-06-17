@@ -36,46 +36,8 @@ public class ExcelUtils {
 	
 	
 	
-	/* Method to get data from excel file */
-
-	public static Object[][] getTableArray(Class<?> cl) throws Exception {
-
-		String[][] tabArray = null;
-		try {
-
-			FileInputStream ExcelFile = new FileInputStream(TestDataFolderSetUpUtils.setExcelTestDataFile(cl));
-			// Access the required test data sheet
-			ExcelWBook = new XSSFWorkbook(ExcelFile);
-			ExcelWSheet = ExcelWBook.getSheet("Sheet1");
-
-			int startRow = 1;
-			int startCol = 0;
-			int ci, cj;
-			int totalRows = ExcelWSheet.getLastRowNum();
-
-			// Getting the column count
-			int totalCols = ExcelWSheet.getRow(0).getPhysicalNumberOfCells();
-			tabArray = new String[totalRows][totalCols];
-			ci = 0;
-
-			for (int i = startRow; i <= totalRows; i++, ci++) {
-				cj = 0;
-				for (int j = startCol; j < totalCols; j++, cj++) {
-					tabArray[ci][cj] = getCellData(i, j);
-				}
-			}
-		} catch (FileNotFoundException e) {
-			Logger.LOG(Level.SEVERE, "Could not read the Excel sheet");
-			e.printStackTrace();
-		} catch (IOException e) {
-			Logger.LOG(Level.SEVERE, "Could not read the Excel sheet");
-			e.printStackTrace();
-		}
-		return (tabArray);
-
-	}
-
-	public static Object[][] getTableArray(String fileName) throws Exception {
+	 
+	 	public static Object[][] getTableArray(String fileName) throws Exception {
 
 		String[][] tabArray = null;
 		try {
@@ -112,15 +74,15 @@ public class ExcelUtils {
 
 	}
 
-	public Object[][] readSheetByName(Class<?> cl, String sheetName) throws Exception {
-		Object[][] testObjArray = getTableArray(cl, sheetName);
-		return (testObjArray);
-	}
-
-	public Object[][] readSheetByName(File dataFile, String sheetName) throws Exception {
-		Object[][] testObjArray = getTableArray(dataFile, sheetName);
-		return (testObjArray);
-	}
+	
+	  public Object[][] readSheetByName(Class<?> cl, String sheetName) throws
+	  Exception { Object[][] testObjArray = getTableArray(cl, sheetName); return
+	  (testObjArray); }
+	  
+	  public Object[][] readSheetByName(File dataFile, String sheetName) throws
+	  Exception { Object[][] testObjArray = getTableArray(dataFile, sheetName);
+	  return (testObjArray); }
+	 
 
 	public static List<String> getAllSheetNames(Class<?> cl) throws Exception {
 		List<String> allSheetNames = new LinkedList<String>();
@@ -164,42 +126,7 @@ public class ExcelUtils {
 
 	}
 
-	/*
-	 * Method to get source data from master source data excel file based on the
-	 * tab name and column
-	 */
-
-		
-
-	/*
-	 * Method to get data from master source data excel file based on the tab
-	 * name, column and with the start year
-	 */
-
-		/*private static void checkInputYear(String value) throws Exception {
-		Calendar now = Calendar.getInstance();
-		int currentYear = now.get(Calendar.YEAR);
-		int year = Integer.valueOf(value);
-		if (currentYear < year || year < 1900)
-			throw new Exception("the required start year is " + year + " it is not correct. Please change ...");
-
-	}*/
-
-	/*
-	 * Method to get source data from master source data excel file based on tab
-	 * name, column and with specific start year and return the rows based on
-	 * the number of years
-	 */
-
-		/*
-	 * Method to get source data from master source data excel file, tab and
-	 * column and with specific value and return the rows based on start year
-	 * and end year
-	 */
-
-		/* Method to get data from specific excel file and tab */
-
-	public static Object[][] getTableArray(File dataFile, String sheetName) throws Exception {
+		public static Object[][] getTableArray(File dataFile, String sheetName) throws Exception {
 		String[][] tabArray = null;
 		try {
 
@@ -317,18 +244,17 @@ public class ExcelUtils {
 		return null;
 	}
 
-	public static int findRowForKeyValue(int ColNum, String key) throws Exception {
-
-		XSSFCell keyCellValue = keyCellValue = ExcelWSheet.getRow(0).getCell(ColNum);
-		int i = 0;
-		int totalRows = ExcelWSheet.getLastRowNum();
-		while (!keyCellValue.getStringCellValue().equals(key) && i < totalRows) {
-			i++;
-			keyCellValue = ExcelWSheet.getRow(i).getCell(ColNum);
-
-		}
-		return i;
-	}
+	
+	  public static int findRowForKeyValue(int ColNum, String key) throws Exception
+	  {
+	  
+	  XSSFCell keyCellValue = keyCellValue = ExcelWSheet.getRow(0).getCell(ColNum);
+	  int i = 0; int totalRows = ExcelWSheet.getLastRowNum(); while
+	  (!keyCellValue.getStringCellValue().equals(key) && i < totalRows) { i++;
+	  keyCellValue = ExcelWSheet.getRow(i).getCell(ColNum);
+	  
+	  } return i; }
+	 
 
 	public static String findValueBasedOnKey(String key) throws Exception {
 		int keyValueRow = findRowForKeyValue(keyColumnNumber, key);
