@@ -22,6 +22,7 @@ public class STC_OCP_Test extends BasePage {
 		Logger.LOG(Level.INFO, "******* TFS Testcase ID *******");
 		
 
+		
 		Logger.TestStepStart("Login to OCP");
 
 		ConfigDataProvider config = new ConfigDataProvider();
